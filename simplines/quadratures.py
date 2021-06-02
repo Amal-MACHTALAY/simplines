@@ -37,7 +37,7 @@ def gauss_legendre(ordergl,tol=10e-14):
 
 def quad(f,a,b):
     n=1000
-    x,w = gauss_legendre(ordergl=n,tol=10e-14)
+    x,w = gauss_legendre(ordergl=n)
     G = 0
     for i in range(n):
         G = G + w[i]*f(0.5*(b-a)*x[i]+ 0.5*(b+a))
