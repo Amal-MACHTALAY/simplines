@@ -34,3 +34,21 @@ def gauss_legendre(ordergl,tol=10e-14):
                 break
     return x,A
 # ...
+
+def quad(f,a,b):
+    n=1000
+    x,w = gauss_legendre(ordergl=n,tol=10e-14)
+    G = 0
+    for i in range(n):
+        G = G + w[i]*f(0.5*(b-a)*x[i]+ 0.5*(b+a))
+    G = 0.5*(b-a)*G
+    return G
+
+
+""" test """
+
+def exp(x):
+    return np.exp(x)
+g=quad(exp,-3,3)
+print('G=',g)   # G= 20.0357487497486
+
